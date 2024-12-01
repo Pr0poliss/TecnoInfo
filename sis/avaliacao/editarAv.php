@@ -12,12 +12,12 @@ $result = mysqli_query($conn, $sql);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recebe os dados do formulário
-    $id = $_POST['cod_avaliacao'];
+    $id = $_GET['id'];
     $titulo = $_POST['titulo_av'];
     $corpo = $_POST['corpo_av'];
 
     // Atualiza o registro no banco de dados
-    $sql = "UPDATE avaliacao SET titulo_av='$titulo', corpo='$corpo_av'WHERE cod_avaliacao='$id'";
+    $sql = "UPDATE avaliacoes SET titulo_av='$titulo', corpo='$corpo_av'WHERE id='$id'";
 
     if (mysqli_query($conn, $sql)) {
         echo "Registro atualizado com sucesso";
@@ -27,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Verifica se um ID foi fornecido para edição
-if (isset($_GET['cod_avaliacao'])) {
-    $id = $_GET['cod_avaliacao'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
     // Busca os dados do registro a ser editado
-    $sql = "SELECT * FROM avaliacao WHERE cod_avaliacao='$id'";
+    $sql = "SELECT * FROM avaliacoes WHERE id='$id'";
     $result = mysqli_query($conn, $sql);
 
     if ($row = mysqli_fetch_assoc($result)) {
@@ -94,6 +94,24 @@ mysqli_close($conn);
             background-color: #0D579C;
         }
 
+        .btn-add {
+            background-color: #19234E;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-add:hover {
+            background-color: #0D579C;
+        }
+
         a {
             color: #19234E;
             text-decoration: none;
@@ -106,13 +124,13 @@ mysqli_close($conn);
     </style>
     <h1>Editar Avaliação</h1>
     <form method="POST" action="?page=updateAv">
-        <input type="hidden" name="cod_avaliacao" value="<?php echo htmlspecialchars($row['cod_avaliacao']); ?>">
+        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
 
         <label>Título:</label>
-        <input type="text" name="nome" value="<?php echo htmlspecialchars($row['titulo_av']); ?>" required><br>
+        <input type="text" name="titulo" value="<?php echo htmlspecialchars($row['titulo']); ?>" required><br>
 
         <label>Conteúdo:</label>
-        <input type="text" name="corpo_av" value="<?php echo htmlspecialchars($row['corpo_av']); ?>" required><br>
+        <input type="text" name="descricao" value="<?php echo htmlspecialchars($row['descricao']); ?>" required><br>
 
 
         <div class="form-group col-md-3">
@@ -122,4 +140,4 @@ mysqli_close($conn);
 
         <input type="submit" value="Atualizar Avaliação">
     </form>
-    <a href="?page=listarAv">Voltar para a lista de avaliações</a>
+    <a href="?page=listarAv" class="btn-add">Voltar para a lista de avaliações</a>
