@@ -10,17 +10,17 @@ $result = mysqli_query($conn, $sql);
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recebe os dados do formulário
-    $id = $_POST['cod_avaliacao'];
-    $titulo = $_POST['titulo_av'];
-    $corpo = $_POST['corpo_av'];
+    $id = $_POST['id'];
+    $titulo = $_POST['titulo'];
+    $descricao = $_POST['descricao'];
 
 
         // Atualiza o registro no banco de dados
-        $sql = "UPDATE avaliacao SET titulo_av='$titulo', corpo_av='$corpo' WHERE cod_avaliacao='$id'";
+        $sql = "UPDATE avaliacoes SET titulo='$titulo', descricao='$descricao' WHERE id='$id'";
 
         if (mysqli_query($conn, $sql)) {
             echo "Registro atualizado com sucesso";
-            header('Location: listarAv.php'); 
+            header('Location: ?page=listarAv'); 
             exit();
         } else {
             echo "Erro: " . $sql . "<br>" . mysqli_error($conn);
@@ -31,11 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 // Verifica se um ID foi fornecido para edição
-if (isset($_GET['cod_avaliacao'])) {
-    $id = $_GET['cod_avaliacao'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
     // Busca os dados do registro a ser editado
-    $sql = "SELECT * FROM avaliacao WHERE cod_avaliacao='$id'";
+    $sql = "SELECT * FROM avaliacoes WHERE id='$id'";
     $result = mysqli_query($conn, $sql);
 
     if ($row = mysqli_fetch_assoc($result)) {
