@@ -7,4 +7,6 @@ Como rodar o código:
 <li>Após isto, inicialize o arquivo em SQL do banco de dados, que está contido em "/TecnoInfo/docs/tecnoinfo.sql".</li><br>
 <li>Feito isto, abra o arquivo em seu navegador. No caso do XAMPP, acesse "localhost/TecnoInfo/".</li><br>
 
+Atualmente, nossa plataforma só comporta aparelhos computadores para sua utilização. Entretanto, em breve, nossa pretenção é a possibilidade de que aparelhos móveis também sejam utilizados para os estudos.
+
 <strong><i>OBS:</i></strong> O site ainda não está completo, ou seja, ainda apresenta erros e falhas. Tivemos complicações com relação ao tempo disponível par a realização do projeto.
