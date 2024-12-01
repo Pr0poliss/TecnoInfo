@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    border: 0;
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================== Dashboard ============================== */
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 10px;
+}
+
+#voltar>img {
+    width: 100%;
+}
+
+h1 {
+    color: #0D579C;
+    font-family: "Rubik", sans-serif;
+    margin-top: 0px;
+}
+h2 {
+    color: #0D579C;
+    font-family: "Rubik", sans-serif;
+    margin-top: 0px;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    /* Faz o container ocupar o espaço restante */
+    height: 100%;
+    /* Garante que o container ocupe 100% da altura da página */
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #19234E;
+    color: #fff;
+    padding: 20px 20px 0 0;
+    font-family: "Rubik", sans-serif;
+    height: 100vh;
+    /* Ocupa toda a altura da viewport */
+    /* overflow-y: scroll; */
+}
+
+.sidebar>a {
+    text-decoration: none;
+}
+
+.sidebar>a>h2,
+h3 {
+    margin: 10px 10px 15px 10px;
+    width: 100%;
+    color: #fff;
+}
+
+.sidebar>ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar>ul>li>a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    align-items: center;
+}
+
+.sidebar>ul>li>a:hover {
+    background-image: linear-gradient(to right, #0060B8, #19234E);
+}
+
+.sidebar>ul>li>a.active {
+    background-image: linear-gradient(to right, #0060B8, #19234E);
+    /* Cor do link ativo */
+    color: #fff;
+    /* Cor do texto no link ativo */
+    width: 100%;
+}
+
+.sidebar>ul>li>a>img {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow: auto;
+    /* Garante que o conteúdo role se for maior que a tela */
+}
+
+.header {
+    color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+    margin-top: 0;
+}
+
+.icon {
+    width: 30px;
+}
+
+#search {
+    width: 420px;
+    height: 43px;
+
+    border-radius: 10px;
+    border: 0.5px solid black;
+    padding: 20px;
+}
+
+#search::placeholder {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+h3 {
+    margin-top: -10px;
+}
+
+/* ============================== Fim Dashboard ============================== */
