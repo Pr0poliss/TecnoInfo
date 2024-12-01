@@ -113,7 +113,7 @@ if (isset($_SESSION['email'])) {
                     <td>
                         <a style="margin-bottom: 10px;"href="?page=verAv&id=<?php echo $row['id']; ?>" class="btn-view">Ver</a>
                         <a style="margin-bottom: 10px;" href="?page=updateAv&id=<?php echo $row['id']; ?>" class="btn-edit">Editar</a>
-                        <a style="margin-left: 22px;" href="delete&id=<?php echo $row['id']; ?>" class="btn-delete">Excluir</a>
+                        <a style="margin-left: 22px;" href="?page=deleteA&id=<?php echo $row['id']; ?>" class="btn-delete">Excluir</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
